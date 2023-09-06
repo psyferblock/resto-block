@@ -6,7 +6,7 @@ import Image from "next/image";
 function Navbar() {
 	const user = false;
 	return (
-		<div className="h-12 text-accent p-4 flex items-center justify-between border-accent uppercase md:h-24">
+		<div className="h-12 text-secondary p-4 flex items-center justify-between border-secondary uppercase md:h-24">
 			{/* LEFT LINKS  */}
 			<div className="hidden md:flex gap-4  flex-1">
 				<Link href="/">Homepage</Link>
