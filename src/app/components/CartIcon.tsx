@@ -3,20 +3,14 @@ import Link from "next/link";
 import React from "react";
 
 function CartIcon() {
-	return (
-		<div>
-			<Link href="/cart" className="flex items-center gap-4">
-				<div className="relative ">
-					<Image
-						src="/cart.png"
-						alt=""
-						fill
-					/>
-				</div>
-                <span>Cart (3)</span>
-			</Link>
-		</div>
-	);
+  return (
+    <Link href="/cart" className=" md:h-5 md:w-5 flex items-center gap-4 ">
+      <div className="relative ">
+        <Image src="/cart.png" alt="" fill />
+      </div>
+      <span>Cart (3)</span>
+    </Link>
+  );
 }
 
 export default CartIcon;
