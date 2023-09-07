@@ -1,0 +1,20 @@
+# Use postgres/example user/password credentials
+version: "3.1"
+
+services:
+    db:
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_USER: myUser
+            POSTGRES_PASSWORD: myPassword
+            POSTGRES_DB: myDb
+        ports: 
+            - 5432:5432
+
+    # this is the equivalent of php my admin but were using prisma studio so we only need that db.
+    # adminer:
+    #     image: adminer
+    #     restart: always
+    #     ports:
+    #         - 8080:8080
