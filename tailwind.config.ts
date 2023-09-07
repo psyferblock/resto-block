@@ -19,15 +19,23 @@ const config: Config = {
 		themes: [
 			{
 				mytheme: {
-					primary: "#a02108",
-					secondary: "#e804a7",
-					accent: "#b26430",
-					neutral: "#1a1221",
-					"base-100": "#f7f1f8",
-					info: "#6f90d3",
-					success: "#25e478",
-					warning: "#dd9b0e",
-					error: "#e22222",
+					primary: "#ca6bea",
+
+					secondary: "#29b28d",
+
+					accent: "#90f4a4",
+
+					neutral: "#251e2a",
+
+					"base-100": "#fcfcfd",
+
+					info: "#2575e4",
+
+					success: "#1d8743",
+
+					warning: "#ed9735",
+
+					error: "#da462f",
 				},
 			},
 		],

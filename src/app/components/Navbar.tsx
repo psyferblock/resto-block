@@ -14,7 +14,6 @@ function Navbar() {
 				<Link href="/contact">Contact</Link>
 			</div>
 			{/* logo  */}
-			logo here
 			<div className="text-xl font-bold flex-1 text-center ">
 				<Link href="#">Massimo</Link>
 			</div>
