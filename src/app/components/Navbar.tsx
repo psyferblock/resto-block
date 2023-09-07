@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Menu from "./Menu";
 import Image from "next/image";
+import CartIcon from "./CartIcon";
 
 function Navbar() {
 	const user = false;
@@ -11,7 +12,7 @@ function Navbar() {
 			<div className="hidden md:flex gap-4  flex-1">
 				<Link href="/">Homepage</Link>
 				<Link href="/menu">Menu</Link>
-				<Link href="/contact">Contact</Link>
+				<Link href="/">Contact</Link>
 			</div>
 			{/* logo  */}
 			<div className="text-xl font-bold flex-1 text-center ">
@@ -37,7 +38,7 @@ function Navbar() {
 				) : (
 					<Link href="/orders">Orders</Link>
 				)}
-				<Link href="/contact">Contact</Link>
+				<CartIcon />
 			</div>
 		</div>
 	);
