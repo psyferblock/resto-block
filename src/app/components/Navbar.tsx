@@ -24,7 +24,7 @@ function Navbar() {
 			</div>
 			{/* RIGHT LINKS  */}
 			<div className="hidden md:flex gap-4 items-center flex-1 justify-end ">
-				<div className="flex items-center gap-2 cursor-pointer md:absolute  top-3 r-2 bg-info  lg:static rounded-md px-1">
+				<div className="flex items-center gap-2 cursor-pointer md:absolute  top-3 r-2 bg-info  lg:static rounded-md px-1 lg:px-40">
 					<Image
 						alt=""
 						src="/phone.png"
