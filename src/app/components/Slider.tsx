@@ -35,10 +35,10 @@ function Slider() {
 	}, []);
 
 	return (
-		<div className="flex p-2 flex-col  h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] bg-base-100  mb-2 lg:flex-row lg:h-full lg:w-1/2">
+		<div className="flex flex-col h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] lg:flex-row bg-secondary">
 			{/* TEXT CONTAINER  */}
-			<div className="h-2/5  flex items-center justify-center flex-col gap-8 text-accent">
-				<h1 className="text-5xl text-center uppercase p-4 md:p-10 md:text-6xl xl:text-7xl text-secondary">
+			<div className="flex-1 flex items-center justify-center flex-col gap-8 text-primary font-bold">
+				<h1 className="text-5xl text-center uppercase p-4 md:p-10 md:text-6xl xl:text-7xl">
 					{" "}
 					{data[currentSlide].title}
 				</h1>
@@ -47,7 +47,7 @@ function Slider() {
 				</button>
 			</div>
 			{/* IMAGE CONTAINER  */}
-			<div className="h-1/2 w-full flex-1 relative lg:h-full lg:w-1/2 ">
+			<div className="w-full flex-1 relative">
 				<Image
 					src={data[currentSlide].image}
 					alt=""
