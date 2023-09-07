@@ -12,21 +12,21 @@ const Featured = () => {
 				{featuredProducts.map((item) => (
 					<div
 						key={item.id}
-						className="w-screen h-[60vh] flex flex-col items-center justify-around p-4 hover:bg-fuchsia-50 transition-all duration-300 md:w-[50vw] xl:w-[33vw] xl:h-[90vh]"
+						className="w-screen h-[60vh] flex flex-col items-center justify-around p-4 hover:bg-warning transition-all duration-300 md:w-[50vw] xl:w-[33vw] xl:h-[90vh]"
 					>
 						{/* IMAGE CONTAINER */}
 						{item.img && (
-							<div className="relative flex-1 w-full hover:rotate-[60deg] transition-all duration-1000 rounded-lg m-1">
+							<div className="relative flex-1 w-full hover:rotate-[60deg] transition-all duration-1000 rounded-lg m-1 ">
 								<Image
 									src={item.img}
 									alt=""
 									fill
-									className="object-contain bg-success rounded-lg"
+									className="object-contain  rounded-lg "
 								/>
 							</div>
 						)}
 						{/* TEXT CONTAINER */}
-						<div className=" flex-1 flex flex-col items-center justify-center text-center gap-4">
+						<div className=" flex-1 flex flex-col items-center justify-center text-center gap-4 ">
 							<h1 className="text-xl font-bold uppercase xl:text-2xl 2xl:text-3xl ">
 								{item.title}
 							</h1>
