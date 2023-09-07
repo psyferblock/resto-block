@@ -7,7 +7,7 @@ const CategoryPage = () => {
   return (
     <div className="flex flex-wrap text-primary ">
       {pizzas.map((item) => (
-        <Link className="w-full h-[60vh] border-r-2 border-b-2 border-primary sm:w-1/2 lg:w-1/3 p-4 flex flex-col justify-between group odd:bg-secondary" href={`/product/${item.id}`} key={item.id}>
+        <Link className="w-full h-[60vh] border-r-2 border-b-2 border-primary sm:w-1/2 lg:w-1/3 p-4 flex flex-col justify-between group odd:bg-accent" href={`/product/${item.id}`} key={item.id}>
           {/* IMAGE CONTAINER */}
           {item.img && (
             <div className="relative h-[80%]">
