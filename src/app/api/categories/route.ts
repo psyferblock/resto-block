@@ -12,5 +12,4 @@ export const GET = async () => {
 			{ status: 500 }
 		);
 	}
-	return new NextResponse("hello", { status: 200 });
 };

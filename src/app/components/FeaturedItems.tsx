@@ -1,6 +1,4 @@
-import { featuredProducts } from "@/data";
 import { ProductType } from "@/types/types";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import React from "react";
 
@@ -45,7 +43,7 @@ const Featured = async () => {
 							</h1>
 							<p className="p-4 2xl:p-8">{item.desc}</p>
 							<span className="text-xl font-bold">
-								${item.price}
+								${item.productPrice}
 							</span>
 							<button className="bg-primary text-base-100 p-2 rounded-md">
 								Add to Cart

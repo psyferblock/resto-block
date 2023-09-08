@@ -30,7 +30,7 @@ model Product {
   isFeatured Boolean @default(false)
   options Json[]
 
-  cat Category @relation(fields:[catSlug] ,references:[slug])
+  category Category @relation(fields:[catSlug] ,references:[slug])
   catSlug String 
 }
 
