@@ -8,7 +8,7 @@ import GoogleProvider from "next-auth/providers/google";
 
 
 export const authOptions: NextAuthOptions = {
-    adapter: PrismaAdapter(prisma as PrismaClient) as Adapter,
+    // adapter: PrismaAdapter(prisma as PrismaClient) as Adapter,
     providers: [
       GoogleProvider({
         clientId: env.GOOGLE_CLIENT_ID,
@@ -18,15 +18,15 @@ export const authOptions: NextAuthOptions = {
   
   
   
-    callbacks: {
+    // callbacks: {
   
   
   
-  //     session({ session, user }) {
-  //       session.user.id = user.id;
-  //       return session;
-  //     },
-    },
+    // //   session({ session, user }) {
+    // //     session.user.id = user.id;
+    // //     return session;
+    // //   },
+    // },
     events: {
       //any thing we place inside the block will be called any time there is a sign in
       // async signIn({ user }) {
