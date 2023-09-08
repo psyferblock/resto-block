@@ -2,12 +2,25 @@ import { env } from "@/app/lib/env";
 import prisma from "@/app/utils/connect";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
-import { NextAuthOptions, getServerSession } from "next-auth";
+import { NextAuthOptions, User, getServerSession } from "next-auth";
 import { Adapter } from "next-auth/adapters";
 import GoogleProvider from "next-auth/providers/google";
 
 import { Session } from "next-auth";
 import { JWT } from "next-auth/jwt";
+
+declare module "next-auth" {
+	interface Session {
+		user: User & {
+			isAdmin: Boolean;
+		};
+	}
+}
+declare module "next-auth/jwt" {
+	interface JWT {
+		isAdmin: Boolean;
+	}
+}
 
 export const authOptions: NextAuthOptions = {
 	adapter: PrismaAdapter(prisma),
@@ -16,13 +29,13 @@ export const authOptions: NextAuthOptions = {
 	},
 	providers: [
 		GoogleProvider({
-			clientId: env.GOOGLE_CLIENT_ID,
-			clientSecret: env.GOOGLE_CLIENT_SECRET,
+			clientId: process.env.GOOGLE_CLIENT_ID!,
+			clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
 		}),
 	],
 
 	callbacks: {
-		async session({ token, session }) {
+		async session({ token, session }: { token: JWT; session: Session }) {
 			if (token) {
 				session.user.isAdmin = token.isAdmin;
 			}
@@ -35,7 +48,7 @@ export const authOptions: NextAuthOptions = {
 				},
 			});
 			token.isAdmin = userInDb?.isAdmin!;
-			
+
 			return token;
 		},
 	},

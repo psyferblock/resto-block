@@ -2,19 +2,18 @@ import { ProductType } from "@/types/types";
 import Image from "next/image";
 import React from "react";
 
-const getData = async ()=>{
-	const res =await fetch( "http://localhost:3000/api/products",{
-		cache:"no-store",
-	})
-	if(!res.ok){
-		throw new Error("something went wrong ")
-
+const getData = async () => {
+	const res = await fetch("http://localhost:3000/api/products", {
+		cache: "no-store",
+	});
+	if (!res.ok) {
+		throw new Error("something went wrong ");
 	}
-	return res.json()
-}
+	return res.json();
+};
 
 const Featured = async () => {
-	const featuredProducts:ProductType[] = await getData()
+	const featuredProducts: ProductType[] = await getData();
 	return (
 		<div className="w-screen overflow-x-scroll text-primary">
 			{/* WRAPPER */}
@@ -41,7 +40,7 @@ const Featured = async () => {
 							<h1 className="text-xl font-bold uppercase xl:text-2xl 2xl:text-3xl ">
 								{item.title}
 							</h1>
-							<p className="p-4 2xl:p-8">{item.desc}</p>
+							<h1 className="p-4 2xl:p-8">{item.desc}</h1>
 							<span className="text-xl font-bold">
 								${item.productPrice}
 							</span>
