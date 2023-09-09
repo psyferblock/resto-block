@@ -3,6 +3,7 @@
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
+
 const UserLinks = () => {
   const { status } = useSession();
   return (
@@ -10,7 +11,7 @@ const UserLinks = () => {
       {status === "authenticated" ? (
         <div>
           <Link href="/orders">Orders</Link>
-          <span className="ml-4 cursor-pointer" onClick={() => signOut()}>Logout</span>
+          <Link href="/" className="ml-4 cursor-pointer" onClick={() => signOut({redirect: false, callbackUrl: "/"}) }>Logout</Link>
         </div>
       ) : (
         <Link href="/login">Login</Link>

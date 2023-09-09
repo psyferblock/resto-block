@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Notification from "./components/Notification";
 import SessionProvider from "./SessionProvider"
 import { useSession } from "next-auth/react";
+import { QueryProvider } from "./components/QueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,12 +26,15 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<SessionProvider >
+				<QueryProvider>
+
 				<body className={inter.className}>
 					<Notification />
 					<Navbar />
 					{children}
 					<Footer />
 				</body>
+				</QueryProvider>
 			</SessionProvider>
 		</html>
 	);
