@@ -10,7 +10,7 @@ function Footer() {
 			>
 				Massimo
 			</Link>
-			<p>All Rights Reserved</p>
+			<h2>All Rights Reserved</h2>
 		</div>
 	);
 }

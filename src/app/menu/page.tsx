@@ -28,7 +28,7 @@ const MenuPage = async () => {
 						<h1 className="uppercase font-bold text-3xl">
 							{category.title}
 						</h1>
-						<p className="text-sm my-8">{category.desc}</p>
+						<h2 className="text-sm my-8">{category.desc}</h2>
 						<button
 							className={`hidden 2xl:block bg-${
 								category.color

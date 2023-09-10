@@ -6,11 +6,9 @@ import Offer from "./components/Offer";
 export default function Home() {
 	return (
 		<main className=" ">
-			<div>
 				<Slider />
 				<FeaturedItems />
 				<Offer />
-			</div>
 		</main>
 	);
 }

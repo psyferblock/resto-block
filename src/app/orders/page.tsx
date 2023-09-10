@@ -1,11 +1,12 @@
 "use client";
 import { OrderType } from "@/types/types";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 // client side because we dont want the search engines to find it . plus the refreshing of orders should happen on the front end
 import React from "react";
+import { toast } from "react-toastify";
 
 const OrdersPage = () => {
 	const { data: session, status } = useSession();
@@ -23,13 +24,37 @@ const OrdersPage = () => {
 			fetch("http://localhost:3000/api/orders").then((res) => res.json()),
 	});
 
-  const handleUpdate = (e: React.FormEvent<HTMLFormElement>,id:string)=>{
-    e.preventDefault()
-    const form =e.target as HTMLFormElement
-    const input =form.elements[0] as HTMLInputElement
-    const status =input.value
+	const queryClient = useQueryClient();
 
-  }
+	const mutation = useMutation({
+		mutationFn: ({ id, status }: { id: string; status: string }) => {
+			return fetch(`http://localhost:/3000/api/orders/${id}`, {
+				method: "PUT",
+				headers: {
+					"Access-Control-Allow-Methods":
+						"GET, POST, PUT, DELETE, OPTIONS",
+					"Content-Type": "application/json",
+					"Access-Control-Allow-Origin": "http://localhost:3000",
+				},
+				// mode: "no-cors", // no-cors, *cors, same-origin
+
+				body: JSON.stringify(status),
+			});
+		},
+		onSuccess() {
+			queryClient.invalidateQueries({ queryKey: ["orders"] });
+		},
+	});
+
+	const handleUpdate = (e: React.FormEvent<HTMLFormElement>, id: string) => {
+		e.preventDefault();
+		const form = e.target as HTMLFormElement;
+		const input = form.elements[0] as HTMLInputElement;
+		const status = input.value;
+
+		mutation.mutate({ id, status });
+		toast.success("order status has been changed ");
+	};
 	if (isLoading || status === "loading") return <div>Loading ....</div>;
 	return (
 		<div className="p-4 lg:px-20 xl:px-40">
@@ -47,7 +72,7 @@ const OrdersPage = () => {
 					{data.map((item: OrderType) => (
 						<tr
 							className={`${
-								item.status !== "delivered" && "bg-red-50"
+								item.status !== "delivered" && "bg-primary"
 							}`}
 							key={item.id}
 						>
@@ -63,7 +88,12 @@ const OrdersPage = () => {
 							</td>
 							{session?.user.isAdmin ? (
 								<td>
-									<form className="flex justify-between px-2" onSubmit={(e)=>{handleUpdate(e,item.id)}}>
+									<form
+										className="flex justify-between px-2"
+										onSubmit={(e) => {
+											handleUpdate(e, item.id);
+										}}
+									>
 										<input
 											type="text"
 											placeholder={item.status}

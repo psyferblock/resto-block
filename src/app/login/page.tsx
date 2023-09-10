@@ -33,10 +33,10 @@ const LoginPage = () => {
 				{/* FORM CONTAINER */}
 				<div className="p-10 flex flex-col gap-8 md:w-1/2">
 					<h1 className="font-bold text-xl xl:text-3xl">Welcome</h1>
-					<p>
+					<h2>
 						Log into your account or create a new one using social
 						buttons
-					</p>
+					</h2>
 					<button
 						className="flex gap-4 p-4 ring-1 ring-info rounded-md"
 						onClick={() => signIn("google")}
@@ -60,7 +60,7 @@ const LoginPage = () => {
 						/>
 						<span>Sign in with Facebook</span>
 					</button>
-					<p className="text-sm">
+					<div className="text-sm">
 						Have a problem?
 						<Link
 							className="underline"
@@ -69,7 +69,7 @@ const LoginPage = () => {
 							{" "}
 							Contact us
 						</Link>
-					</p>
+					</div>
 				</div>
 			</div>
 		</div>
